@@ -14,6 +14,8 @@ This manual assumes that you have installed the [Dependencies](README.md#install
 
 ### Actual CloudFoundry installation
 
+**Note:** this information is based on [this issue](https://github.com/pivotal-cf-experimental/bosh-bootloader/issues/40) and [this issue](https://github.com/pivotal-cf-experimental/bosh-bootloader/issues/42).
+
 1. Run `bbl unsupported-deploy-bosh-on-aws-for-concourse` which will give you a fully functional BOSH director (`v257` or higher required to deploy BOSH v1.0 manifests) and AWS infrastructure, created via an Amazon CloudFormation Stack.
 2. Run `bbl director-address`, `bbl director-username` and `bbl director-password` to obtain the BOSH director address, username and password.
 3. [Target the BOSH Director](https://docs.cloudfoundry.org/deploying/common/create_a_manifest.html#target) with your BOSH CLI.
