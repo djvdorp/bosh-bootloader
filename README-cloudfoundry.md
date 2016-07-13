@@ -27,7 +27,7 @@ This manual assumes that you have installed the [Dependencies](README.md#install
 8. Run `bosh deploy` and wait patiently. Make sure your [EC2 Resource Limit](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) allows you to spin up the amount of EC2 instances you want here.
 9. If all went well, you need to either acquire a valid SSL certificate, key, and optional chain or [generate self-signed ones (for testing purposes)](http://www.akadia.com/services/ssh_test_certificate.html).
 10. Run `bbl unsupported-create-lbs --type cf` to create the ELBs needed by the gorouter and diego SSH proxies, which will update your Amazon CloudFormation Stack.
-11. Run `bbl lbs` to get the Amazon ELB endpoint, then make sure to [configure the DNS for your domain(s)](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#domains-dns).
-12. [Add the elb(s)](https://github.com/pivotal-cf-experimental/bosh-bootloader/issues/42#issuecomment-230710972) to the Deployment Manifest Stub's `resource_pool` `cloud_properties` for your `routers`.
+11. Run `bbl lbs` to get the Amazon ELB endpoint for the `CFRouter`, then make sure to [configure the DNS for your domain(s)](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#domains-dns).
+12. [Add the CFRouter ELB](https://github.com/pivotal-cf-experimental/bosh-bootloader/issues/42#issuecomment-230710972) to the Deployment Manifest Stub's `resource_pool` `cloud_properties` for your `routers`.
 13. [Add an additional security group](https://github.com/pivotal-cf-experimental/bosh-bootloader/issues/42#issuecomment-229110469) to the (compiled) Manifests' `resource_pool` `cloud_properties` for your `routers`, this additional security group allows the ingress from our ELB that's required and is created by the previous `bbl` command.
 14. [Verify the Deployment](https://docs.cloudfoundry.org/deploying/common/deploy.html#verify) and enjoy your fresh CloudFoundry installation!
